@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ZohoTask</string>
+    <string name="menu_feeds">Feeds</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_notification">Notification</string>
+    <string name="menu_settings">Settings</string>
+    <string name="add_post">Add Post</string>
+    <string name="sample_time">12:17 PM</string>
+    <string name="sample_name">Ricardo Chandler</string>
+    <string name="hint_search">Search for feeds, forums, user, etc</string>
+    <string name="forum">Forum</string>
+    <string name="search">Search</string>
+    <string name="sort_a_z">A-Z</string>
+    <string name="sort_by">Sort by</string>
+</resources>

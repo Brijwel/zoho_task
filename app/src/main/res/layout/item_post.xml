@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="isFavourite"
+            type="Boolean" />
+
+        <variable
+            name="post"
+            type="com.brijwel.zohotask.domain.model.Post" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_large">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivProfilePicture"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_percent="0.15"
+                app:shapeAppearanceOverlay="@style/Shape.Circle"
+                app:srcCompat="@drawable/portrait"
+                tools:src="@tools:sample/avatars" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStatus"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/dp_4_"
+                app:layout_constraintBottom_toBottomOf="@+id/ivProfilePicture"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toEndOf="@+id/ivProfilePicture"
+                app:layout_constraintWidth_percent="0.05"
+                app:shapeAppearanceOverlay="@style/Shape.Circle"
+                app:srcCompat="@drawable/ic_online" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPostTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:text="@{post.title}"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:textColor="@color/davy_grey"
+                app:layout_constraintEnd_toStartOf="@+id/tvLike"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/full_names" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPostBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:ellipsize="end"
+                android:text="@{post.body}"
+                android:textAppearance="@style/TextAppearance.Medium"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toStartOf="@+id/tvLike"
+                app:layout_constraintStart_toEndOf="@+id/ivProfilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/tvPostTitle"
+                tools:maxLines="2"
+                tools:text="@tools:sample/lorem/random" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPostAuthor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/sample_name"
+                android:textAppearance="@style/TextAppearance.Small"
+                android:textColor="@color/tropical_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/divider"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="@+id/tvPostBody"
+                app:layout_constraintTop_toBottomOf="@+id/tvPostBody"
+                app:layout_constraintWidth_default="wrap"
+                tools:text="@tools:sample/full_names" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/divider"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/tropical_blue"
+                app:layout_constraintBottom_toBottomOf="@+id/tvPostAuthor"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintEnd_toStartOf="@+id/tvPostedTime"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tvPostAuthor"
+                app:layout_constraintTop_toTopOf="@+id/tvPostAuthor"
+                app:layout_constraintWidth_percent="0.01"
+                app:shapeAppearanceOverlay="@style/Shape.Circle" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPostedTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sample_time"
+                android:textAppearance="@style/TextAppearance.Small"
+                android:textColor="@color/tropical_blue"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tvPostAuthor"
+                app:layout_constraintEnd_toEndOf="@+id/tvPostBody"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/divider"
+                app:layout_constraintWidth_default="wrap"
+                tools:text="@tools:sample/date/hhmmss" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@{isFavourite?@drawable/ic_liked:@drawable/ic_like}"
+                android:drawablePadding="@dimen/padding_small"
+                android:text="23"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Small"
+                android:textColor="@color/natural_grey"
+                app:layout_constraintBottom_toTopOf="@+id/tvComment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:drawableTop="@drawable/ic_like"
+                tools:text="23" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/ic_comment"
+                android:drawablePadding="@dimen/padding_small"
+                android:text="6"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Small"
+                android:textColor="@color/natural_grey"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLike"
+                tools:text="23" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
