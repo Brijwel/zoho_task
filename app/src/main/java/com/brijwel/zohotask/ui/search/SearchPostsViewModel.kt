@@ -9,7 +9,9 @@ import androidx.paging.cachedIn
 import com.brijwel.zohotask.domain.model.Post
 import com.brijwel.zohotask.domain.repository.PostRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
